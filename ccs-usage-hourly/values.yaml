@@ -1,0 +1,31 @@
+name: usage-hourly
+namespace: ccs-preprod
+
+schedule: "0 * * * *"
+concurrencyPolicy: Forbid
+suspend: false
+successfulJobsHistoryLimit: 24
+failedJobsHistoryLimit: 1
+activeDeadlineSeconds: 720         # 12m
+ttlSecondsAfterFinished: 5184000   # 60d
+
+image:
+  repository: coredgeio/hourly-usage-collector
+  tag: fluid-1.8.3
+  pullPolicy: IfNotPresent
+
+containerName: hourly-runner
+
+configMap:
+  name: usage-metric-config
+  optional: false
+  data:
+    CLICKHOUSE_ADDR: "" #"100.65.244.21:9000"
+    CLICKHOUSE_PWD: "" #"ZJ5C8FbO2X"
+    METERING_ADDR: "" #"orbiter-metering:8091"
+
+restartPolicy: Never
+
+configMap:
+  create: false
+  name: usage-metric-config
