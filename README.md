@@ -29,10 +29,10 @@ A Helm chart to deploy the **CCS Usage Hourly CronJob** that collects usage metr
 
 ```bash
 # Create namespace if not exists
-kubectl create namespace ccs-preprod
+kubectl create namespace ccs
 
 # Install or upgrade the chart
-helm upgrade --install usage-hourly ./usage-hourly -n ccs-preprod
+helm upgrade --install usage-hourly ccs-usage-hourly -n ccs
 ```
 
 ---
