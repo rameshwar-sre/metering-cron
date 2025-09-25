@@ -1,4 +1,4 @@
-name: my-new-cronjob-name #usage-hourly 
+name: usage-hourly 
 
 # Namespace is optional – better to pass with `-n` during helm install
 namespace: "" #"monitoring"
