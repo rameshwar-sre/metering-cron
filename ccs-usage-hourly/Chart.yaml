@@ -1,7 +1,8 @@
 apiVersion: v2
 name: usage-hourly
-description: Helm chart for CCS usage-hourly CronJob
+description: A Helm chart to deploy the CCS Usage Hourly CronJob that collects usage metrics and pushes them to ClickHouse/Metering services.
 type: application
 version: 0.1.0
 appVersion: "1.0.0"
 icon: "https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.png"
+
