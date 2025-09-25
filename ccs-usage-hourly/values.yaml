@@ -1,5 +1,7 @@
-name: usage-hourly
-namespace: ccs-preprod
+name: my-new-cronjob-name #usage-hourly 
+
+# Namespace is optional – better to pass with `-n` during helm install
+namespace: "" #"monitoring"
 
 schedule: "0 * * * *"
 concurrencyPolicy: Forbid
@@ -17,15 +19,12 @@ image:
 containerName: hourly-runner
 
 configMap:
-  name: usage-metric-config
+  create: true        #if true, chart creates a ConfigMap from .Values.configMap.data
+  name: #usage-metric-config
   optional: false
   data:
-    CLICKHOUSE_ADDR: "" #"100.65.244.21:9000"
-    CLICKHOUSE_PWD: "" #"ZJ5C8FbO2X"
-    METERING_ADDR: "" #"orbiter-metering:8091"
+    CLICKHOUSE_ADDR: " " #"100.65.244.21:9000"
+    CLICKHOUSE_PWD: " " #"ZJ5C8FbO2X"
+    METERING_ADDR: " " #"orbiter-metering:8091"
 
 restartPolicy: Never
-
-configMap:
-  create: false
-  name: usage-metric-config
